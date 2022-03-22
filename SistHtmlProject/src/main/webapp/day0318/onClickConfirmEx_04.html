@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 꽃을 클릭하면 div에 꽃 사진이 나옴 -->
+</head>
+<body>
+<button onclick="buttonOne()">미니언즈</button>
+<button onclick="buttonTwo()">꽃</button>
+<button onclick="buttonThree()">과일</button>
+
+<div id="result"> </div>
+
+<script type="text/javascript">
+
+// 배열+반복문을 할 수 있지 않을까?
+//var btnTheme=["미니언즈","꽃","과일"];
+
+function buttonOne() {
+	var qq=confirm("미니언즈를 출력할까요??");
+	if(qq){
+		alert("밥오");
+		var img1="<img alt='' src='/SistHtmlProject/image/01.png' id='myimg1'>";
+		result.innerHTML+=img1;
+	} 
+}
+	function buttonTwo() {
+		var qq=confirm("꽃 출력할까요??");
+		if(qq){
+			alert("밥오");
+			var img1="<img alt='' src='/SistHtmlProject/image/flower_ani/f1.png' id='myimg1'>";
+			result.innerHTML+=img1;
+		} 
+	}
+		function buttonThree() {
+			var qq=confirm("과일를 출력할까요??");
+			if(qq){
+				alert("밥오");
+				var img1="<img alt='' src='/SistHtmlProject/image/flower_ani/f1.pngf16.png' id='myimg1'>";
+				result.innerHTML+=img1;
+			} 
+	
+}
+
+</script>
+</body>
+</html>

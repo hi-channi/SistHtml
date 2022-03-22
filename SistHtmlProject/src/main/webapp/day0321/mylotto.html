@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<link rel="stylesheet" href="../css/mylotto.css">
+<script type="text/javascript">
+	lotto = [ 6, 12, 26, 33, 38, 42 ]; //정답 로또 숫자
+	var rndlotto = new Array(6);
+	window.onload = function() {
+		writelotto();
+
+		// 랜덤으로 6개 출력
+		document.getElementById("btnRefresh").onclick = function() {
+			view.innerHTML = ""; // 번호 새로 추출하면 결과창 clean
+			writelotto();
+		}
+
+		// 일치 여부 검증
+		document.getElementById("btnSelect").onclick = function() {
+			var matchCnt = 0;
+
+			// 1등 로또와 랜덤 추출 로또 비교
+			for (var i = 0; i < rndlotto.length; i++) {
+				for (var j = 0; j < lotto.length; j++) {
+					if (rndlotto[i] == lotto[j]) {
+						matchCnt++;
+					}
+				}
+			}
+			var result = "<b>금주 로또 번호</b><br>"
+			for (var i = 0; i < lotto.length; i++) {
+				result += "[" + lotto[i] + "]&nbsp;&nbsp;";
+
+			}
+			switch (matchCnt) {
+
+			case 4:
+				result += "<br>축하합니다! 3등입니다.";
+				break;
+			case 5:
+				result += "<br>축하합니다! 2등입니다.";
+				break;
+			case 6:
+				result += "<br>대단합니다! 1등입니다.";
+				break;
+			default:
+				result += "<br>아쉽습니다. 탈락입니다.";
+				break;
+			}
+
+			// rndlotto를 view에 출력
+			result += "<br>맞은 갯수: " + matchCnt + "개";
+			view.innerHTML = result;
+
+		}
+	}
+	// 로또 출력 메소드
+	function writelotto() {
+		for (var i = 0; i < rndlotto.length; i++) {
+			rndlotto[i] = parseInt(Math.random() * 45) + 1;
+			// 중복 숫자 방지
+			for (var j = 0; j < i; j++) {
+				if (rndlotto[i] == rndlotto[j]) {
+					i--;
+					break;
+				}
+			}
+		}
+		// 오름차순 배열
+		/*for (var i = 0; i < rndlotto.length - 1; i++) {
+		    for (var j = i + 1; j < rndlotto.length; i++) {
+		        var temp = rndlotto[i];
+		        rndlotto[i] = rndlotto[j];
+		        rndlotto[j] = temp;
+		    }
+		}*/ 
+		// 오름차순 배열 작동 안함
+		
+		//lotto 를 div에 출력
+		var lottodiv = document.getElementsByClassName("lotto");
+		for (var i = 0; i < lottodiv.length; i++) {
+			lottodiv[i].innerHTML = rndlotto[i];
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="lotto"></div>
+	<div class="lotto"></div>
+	<div class="lotto"></div>
+	<div class="lotto"></div>
+	<div class="lotto"></div>
+	<div class="lotto"></div>
+	<hr class="hr" align="left" size="5" color="gray">
+
+	<button type="button" class="btna" id="btnRefresh">다른숫자 발생</button>
+	<button type="button" class="btna" id="btnSelect">최종 결정</button>
+
+	<br>
+	<br>
+	<div id="view"></div>
+
+</body>
+</html>

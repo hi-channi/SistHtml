@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Yeon+Sung&display=swap')
+	;
+
+#out {
+	font-family: Dongle;
+	font-weight: bold;
+	padding: 20px 20px;
+	width: 500px;
+	margin-top: 50px;
+	border: 1px solid gray;
+	text-align: center;
+	background-color: #ffffff;
+}
+</style>
+<script type="text/javascript">
+	window.onload = function() {
+
+		var ftColor = document.getElementById("mycolor");
+		var bgColor = document.getElementById("mycolor2");
+		var selWidth = document.getElementById("selWidth");
+
+		ftColor.onchange = function() {
+			out.style.color = this.value;
+		}
+
+		bgColor.onchange = function() {
+			out.style.backgroundColor = this.value;
+		}
+
+		selWidth.onchange = function() {
+			out.style.borderWidth = this.value + "px";
+		}
+
+		var fsize = document.getElementById("fsize");
+		fsize.innerHTML = "현재 글꼴 크기는 40px 입니다.";
+		// 조건: 3px씩 증감
+
+		var fsizeDown = document.getElementById("fsizeDown");
+
+		fsizeDown.onclick = function() {
+			var outsize = parseInt(out.style.fontSize);
+			// alert(outsize); // 현재값 확인
+			outsize -= 3;
+
+			if (outsize < 8) {
+				alert("최소 크기입니다.");
+				return;
+			}
+			out.style.fontSize = outsize + "px";
+			fsize.innerHTML = "현재 글꼴 크기는 " + outsize + "px 입니다.";
+		}
+
+		var fsizeUp = document.getElementById("fsizeUp");
+
+		fsizeUp.onclick = function() {
+			var outsize = parseInt(out.style.fontSize);
+			// alert(outsize); // 현재값 확인
+			outsize += 3;
+
+			if (outsize > 80) {
+				alert("최대 크기입니다.");
+				return;
+			}
+			out.style.fontSize = outsize + "px";
+			fsize.innerHTML = "현재 글꼴 크기는 " + outsize + "px 입니다.";
+		}
+	}
+</script>
+</head>
+<body>
+
+	<!-- 폰트 조절 이벤트 -->
+
+	<button type="button" id="fsizeDown">점점 작게</button>
+	<button type="button" id="fsizeUp">점점 크게</button>
+	<hr>
+	<div id="fsize"></div>
+
+	<b>글자색 선택</b>
+	<input type="color" value="#ff00ff" id="mycolor">
+	<br>
+	<b>음영색 선택</b>
+	<input type="color" value="#ff00ff" id="mycolor2">
+	<br>
+	<b>테두리선 선택</b>
+	<select id="selWidth" style="width: 120px;">
+		<option value="0">없음</option>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+	</select>
+	<div id="out" style="font-size: 40px;">오늘은 즐거운 금요일입니다.</div>
+</body>
+</html>

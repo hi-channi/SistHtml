@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	border: 2px solid gray;
+	border-collapse: collapse;
+	width: 500px;
+}
+
+tr, th, td {
+	border: 1px dotted gray;
+	font-size: 10pt;
+}
+
+#result {
+	position: absolute;
+	left: 10px;
+	top: 300px;
+	width: 500px;
+	height: 200px;
+	border: 2px solid gray;
+	background: #ffffcc;
+	padding: 20px 10px;
+}
+</style>
+<script type="text/javascript">
+	function disp() {
+		
+		result.innerHTML=" "; // 초기화 기능 추가
+		// 최종학력 출력 (radiobox)
+		var gradeStr="나의 최종 학력은 ";
+		for (var i = 0; i < frame1.grade.length; i++) { 
+			if(frame1.grade[i].checked) {
+				gradeStr+=frame1.grade[i].value+" 졸업 입니다.<br>";
+				
+			} 
+		}
+		result.innerHTML+=gradeStr;
+		
+		// 사용 언어 출력 (checkbox)
+		var skillStr="다룰 줄 아는 프로그래밍 언어는 ";
+		var flag=false; // 하나도 선택 안된 상태를 false로 지정
+		for (var i = 0; i < frame1.skill.length; i++) {
+			if(frame1.skill[i].checked) { // 다중선택 출력
+				flag=true; // 한개라도 선택되면 true 반환
+				skillStr+=frame1.skill[i].value+" ";
+			}	
+		}
+		if(!flag) { // flag=false 이면 >> 하나라도 선택된 게 없다면
+			skillStr="아직은 할 줄 아는 프로그래밍 언어가 없습니다.<br>";
+		} else { 
+			skillStr+="입니다.<br>";
+		}
+		result.innerHTML+=skillStr;
+	
+		var fileInfoStr="첨부한 파일의 이름은 "+frame1.fileInfo.value+"입니다.<br>";
+		result.innerHTML+=fileInfoStr;
+		
+		// 최우수 조 출력
+		var firstTeamStr=frame1.team.value+"가 세미프로젝트를 가장 잘할 것 같습니다.<br>";
+		result.innerHTML+=firstTeamStr;
+		
+		// 신체 사이즈 출력
+		var weightStr="제 몸무게는 "+frame1.weight.value;
+		var heightStr="kg 이며, 제 키는 "+frame1.height.value+"cm 입니다.<br>";
+		result.innerHTML+=weightStr+heightStr;
+		
+		// 색상 코드 출력
+		var colorStr="선택한 색상의 Hex 코드는 "+frame1.rgb.value+"입니다.";
+		result.innerHTML+=colorStr;
+		
+		// 선택한 날짜 출력
+		/* var dateStr="선택한 날짜는 "+frame1.date.value+"입니다.<br>";
+		result.innerHTML+=dateStr; */
+	}
+	
+	function del() {
+		result.innerHTML=" ";
+	}
+	
+</script>
+</head>
+<body>
+
+	<form action="#" name="frame1">
+		<table>
+			<caption>설문조사</caption>
+			<!-- Radio -->
+			<tr height="30">
+				<td><b>최종 학력을 선택하시오.</b> <input type="radio" name="grade"
+					value="고등학교">고등학교&nbsp; <input type="radio" name="grade"
+					value="전문대학">전문대학&nbsp; <input type="radio" name="grade"
+					value="4년대학">4년제 대학&nbsp; <input type="radio" name="grade"
+					value="대학원">대학원&nbsp;</td>
+			</tr>
+			<!-- Checkbox -->
+			<tr>
+				<td><b>가능한 프로그램 언어</b> <input type="checkbox" name="skill"
+					value="JAVA">JAVA&nbsp; <input type="checkbox" name="skill"
+					value="C">C&nbsp; <input type="checkbox" name="skill"
+					value="JSP">JSP&nbsp; <input type="checkbox" name="skill"
+					value="Spring">SPRING&nbsp;</td>
+			</tr>
+			<!-- File, Image -->
+			<tr>
+				<td><b>이미지 or 파일선택</b>&nbsp;&nbsp;&nbsp;&nbsp; <input
+					type="file" name="fileInfo"></td>
+			</tr>
+
+			<!-- Select -->
+			<tr>
+				<td><b>세미프로젝트를 가장 잘할 거 같은 조는?</b>&nbsp;&nbsp; <select name="team">
+						<option value="1조" selected="selected">1조</option>
+						<option value="2조">2조</option>
+						<option value="3조">3조</option>
+						<option value="4조">4조</option>
+				</select></td>
+			</tr>
+
+			<!-- number -->
+			<tr>
+				<td><b>당신의 키는 몇 cm 입니까?</b>&nbsp; <input type="number"
+					name="height" min="150" max="210" value="165" step="2">cm</td>
+			</tr>
+			<tr>
+				<td><b>당신의 몸무게는 몇 kg 입니까?</b>&nbsp; <input type="number"
+					name="weight" min="30" max="150" value="55" step="2">kg</td>
+			</tr>
+
+			<!-- color -->
+			<tr>
+				<td><b>색상 선택</b>&nbsp;&nbsp; <input type="color" name="rgb"></td>
+			</tr>
+
+			<!-- Date -->
+			<tr>
+				<td><b>날짜 선택</b>&nbsp;&nbsp; <input type="date"></td>
+			</tr>
+		</table>
+
+		<input type="button" value="확인" onclick="disp()"> <input
+			type="reset" value="초기화" name="reset" onclick="del()">
+	
+	</form>
+	<div id="result"></div>
+	
+</body>
+</html>

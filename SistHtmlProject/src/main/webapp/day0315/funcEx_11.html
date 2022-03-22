@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		document.write("안녕하세요, 효림님. 자바스크립트 수업에 오신걸 환영합니다.<br>");
+		document.write("안녕하세요, 주찬님. 자바스크립트 수업에 오신걸 환영합니다.<br>");
+		document.write("안녕하세요, 현정님. 자바스크립트 수업에 오신걸 환영합니다.<br>");
+		
+		
+		// 중복되는 부분을 함수로 만든 후 중복되지 않은 부분을 함수의 파라미터로 넘긴다
+		
+		function showname(name) {
+			document.write("안녕하세요, "+ name+"님. 자바스크립트 수업에 오신걸 환영합니다.<br>");
+		}
+		showname("효림");
+		showname("주찬");
+		
+		// Q. 함수 호출 시 name, age를 파라미터로 넘긴 후 출력
+		
+		function showInfo(name, age) {
+			document.write("안녕하세요. <br>"+name+"님의 나이는 "+age+"입니다.<br>");
+		}
+		
+		showInfo("아라",25);
+		
+		
+		// Q. 리터럴 방식으로 이름, 나이, 몸무게를 파라미터로 받아 출력
+		
+		showintro=function(name, age, weight) {
+			document.write("이름: "+name+"<br>나이: "+age+"세<br>몸무게: "+weight+"kg");
+		}
+		
+		showintro("김주찬", 26, 72);
+	</script>
+	
+</body>
+</html>

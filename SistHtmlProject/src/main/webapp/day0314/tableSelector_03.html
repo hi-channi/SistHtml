@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.tb1 {
+	width: 500px;
+	border: 3px groove gray;
+}
+
+.tb2 {
+	width: 400px;
+	border: 5px inset green;
+	border-collapse: collaspe; /* border 간격 제거 */
+}
+/* >: 바로 아래 태그를 의미 */
+.tb1>thead>tr>th {
+	border: 1px solid gray;
+	background-color: tomato;
+	color: white;
+}
+
+.tb>thead>tr {
+	height: 50px;
+	font-size: 1.2em;
+}
+
+.tb>tbody>tr {
+	height: 30px;
+}
+
+.tb>tbody>tr>td {
+	background-color: gray;
+	color: white;
+	border: 1px solid gray;
+}
+
+/* table2 css */
+/* >: 바로 아래 태그, (공백): 하위 태그 */
+.tb th, .tb td {
+	border: 1px solid orange;
+}
+
+.tb2 thead tr {
+	height: 50px;
+	color: red;
+}
+
+tb2 img {
+	width: 100px
+}
+/* td 태그의 1번째 열 너비 조절*/
+.tb2 td:nth-child(1) {
+	width: 70px;
+}
+
+/* td 태그 3번쨰 열 너비를 100px, 글자색 blue, 우측 졍렬 */
+.tb2 td:nth-child(3) {
+	width: 100px;
+	color: blue;
+	text-align: right;
+}
+
+/* 테이블 이벤트에서 css를 줄 수 있음 */
+.tb1 tbody td:hover {
+	background-color: gray;
+	color: black;
+}
+
+.tb2 thead tr:hover{
+background-color: orange;
+color: white;
+}
+</style>
+</head>
+<body>
+	<table class="tb1">
+		<caption>[표연습1]</caption>
+		<thead>
+			<tr>
+				<th>이름</th>
+				<th>나이</th>
+				<th>주소</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>김민지</td>
+				<td>22세</td>
+				<td>서울시 금천구</td>
+			</tr>
+			<tr>
+				<td>김은지</td>
+				<td>26세</td>
+				<td>서울시 강남구</td>
+			</tr>
+			<tr>
+				<td>이민영</td>
+				<td>23세</td>
+				<td>서울시 마포구</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	<table class="tb2">
+		<caption>[표연습2]</caption>
+		<thead>
+			<tr>
+				<th>꽃이름</th>
+				<th>사진</th>
+				<th>가격</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>작약</td>
+				<td><img alt="" src="../image/flower_ani.f1.png"></td>
+				<td>3,500원</td>
+			</tr>
+			<tr>
+				<td>디알리아</td>
+				<td><img alt="" src="../image/flower_ani.f1.png"></td>
+				<td>4,500원</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

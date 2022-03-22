@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function () {
+	
+	// 1. id를 통해 해당 요소 값 읽어오기
+	btn1=document.getElementById("btn1");
+	// 읽어온 객체에 이벤트 부여
+	btn1.onclick=function() {
+		myimg1.setAttribute("src","/SistHtmlProject/image/c3.png");
+		myimg2.setAttribute("src","../image/c4.png");
+		// 이미지 너비 변경
+		myimg1.style.width='100px'
+		myimg2.style.width='100px'
+
+	}
+	
+	// 간단버전
+	document.getElementById("btn2").onclick=function() {
+		myimg1.setAttribute("src","/SistHtmlProject/image/01.png");
+		myimg2.setAttribute("src","../image/02.png");
+	}
+	
+	document.getElementById("btn3").onclick=function() {
+		myimg1.setAttribute("src","/SistHtmlProject/image/c1.png");
+		myimg2.setAttribute("src","../image/c2.png");
+	}
+}
+
+</script>
+</head>
+<body>
+<h4>절대주소를 이용한 이미지</h4>
+<img alt="" src="/SistHtmlProject/image/c1.png" id="myimg1">
+<hr>
+<h4>절대주소를 이용한 이미지</h4>
+<img alt="" src="../image/c2.png" id="myimg2">
+<hr>
+<input type="button" value="변경1" id="btn1">
+<input type="button" value="변경2" id="btn2">
+<input type="button" value="원래대로" id="btn3">
+</body>
+</html>

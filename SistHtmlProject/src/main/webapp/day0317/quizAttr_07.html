@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.thumbnail {
+	width: 100px;
+}
+
+.main {
+	width: 300px;
+	height: 350px;
+}
+
+div#set {
+	position: absolute;
+	left: 500px;
+	top: 500px;
+	cursor: pointer;
+}
+
+#main_set>img {
+	position: absolute;
+	line-height: 350px;
+	top: 300px;
+	width: 350px;
+	height: 400px;
+}
+</style>
+
+<script type="text/javascript">
+	window.onload = function() {
+		var img = new Array();
+		for (var i = 0; 1 < 10; i++) {
+			img[i]=document.getElementById("img"+[i]);
+		}
+		/*
+		var img = [ img1 = document.getElementById("img1"),
+				img2 = document.getElementById("img2"),
+				img3 = document.getElementById("img3"),
+				img4 = document.getElementById("img4"),
+				img5 = document.getElementById("img5"),
+				img6 = document.getElementById("img6"),
+				img7 = document.getElementById("img7"),
+				img8 = document.getElementById("img8"),
+				img9 = document.getElementById("img9"),
+				img10 = document.getElementById("img10") ];
+*/
+		for (var i = 0; i < img.length; i++) {
+			img[i].onclick = function() {
+				main_img.setAttribute("src", this.getAttribute("src"));
+				// 왜 img[i]를 넣으면 작동하지 않고, this를 넣으면 작동할까?
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+
+	<div id="set">
+		<img alt="" src="../image/01.png" class="thumbnail" id="img1"> <img
+			alt="" src="../image/02.png" class="thumbnail" id="img2"> <img
+			alt="" src="../image/03.png" class="thumbnail" id="img3"> <img
+			alt="" src="../image/04.png" class="thumbnail" id="img4"> <img
+			alt="" src="../image/05.png" class="thumbnail" id="img5"> <img
+			alt="" src="../image/06.png" class="thumbnail" id="img6"> <img
+			alt="" src="../image/07.png" class="thumbnail" id="img7"> <img
+			alt="" src="../image/08.png" class="thumbnail" id="img8"> <img
+			alt="" src="../image/09.png" class="thumbnail" id="img9"> <img
+			alt="" src="../image/10.png" class="thumbnail" id="img10">
+
+
+	</div>
+
+	<div id="main_set">
+		<img alt="" src="../image/01.png" class="main" id="main_img">
+	</div>
+
+</body>
+</html>

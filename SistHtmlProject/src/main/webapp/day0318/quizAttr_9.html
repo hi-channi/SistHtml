@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button type="button" id="btn1">미니언즈1</button>
+<button type="button" id="btn2">미니언즈2</button>
+<button type="button" id="btn3">미니언즈3</button>
+<br>
+<button type="button" id="btn4">이미지 확대</button>
+<button type="button" id="btn5">이미지 축소</button>
+
+<hr>
+<img alt="" src="" width="300" id="img" border="2">
+
+<script type="text/javascript">
+
+var b1=document.getElementById("btn1");
+var b2=document.getElementById("btn2");
+var b3=document.getElementById("btn3");
+var b4=document.getElementById("btn4");
+var b5=document.getElementById("btn5");
+
+b1.onclick=function() {
+	img.setAttribute("src","../image/01.png")
+}
+b2.onclick=function() {
+	img.setAttribute("src","../image/02.png")
+}
+b3.onclick=function() {
+	img.setAttribute("src","../image/03.png")
+}
+
+b4.onclick=function() {
+	var w=parseInt(img.getAttribute("width"));
+	w+=10;
+	w=img.setAttribute("width",w); // 증가(확대)는 형변환(parseInt) 필수
+	
+}
+b5.onclick=function() {
+	var w=img.getAttribute("width");
+	w-=10;
+	w=img.setAttribute("width",w);
+	
+}
+
+</script>
+</body>
+</html>

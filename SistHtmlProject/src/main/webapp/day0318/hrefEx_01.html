@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function sound() {
+		alert("호출 성공");
+	}
+	
+	function gofile(url) {
+		location.href=url;
+	}
+</script>
+</head>
+<body>
+<!-- a태그는 파일명과 url을, 버튼은 자바스크립트 함수를 호출한다. -->
+<input type="button" value="자바스크립트 함수 호출" onclick="sound()">
+<br><br>
+<!-- javascript 함수 (location.href)를 이용해서 파일이동 -->
+<input type="button" value="자바스크립트 함수 호출" onclick="location.href='../day0317/AttrSetting_06.html'">
+<!-- script 함수(gofile)에 url을 변수로 넘겨 실행 -->
+<input type="button" value="자바스크립트 함수 호출" onclick="gofile('../day0317/AttrSetting_06.html')">
+
+</body>
+</html>

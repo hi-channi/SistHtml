@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function() {
+	setInterval(rndNum,1000);
+
+}
+function rndNum() {
+	var su=new Array();
+	for (var i = 0; i < 5; i++) {
+		su[i]=parseInt(Math.random()*9)+1;
+	
+		// 중복체크
+		for (var j = 0; j < i; j++) {
+			if(su[i]==su[j]) {
+				i--;
+				break;
+			}
+		}
+	}
+	
+	for (var i = 0; i < 5; i++) {
+		image[i].src='../image/num/'+su[i]+'.gif';
+	}
+}
+</script>
+</head>
+
+<body>
+<img alt="" src="" name="image">
+<img alt="" src="" name="image">
+<img alt="" src="" name="image">
+<img alt="" src="" name="image">
+<img alt="" src="" name="image">
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	//Q. 아이디가 angel 이고 비밀번호가 1234 이면
+	//angel님 방문을 환영합니다
+	//존재하지 않는 아이디입니다..
+	//잘못된 비밀번호 입니다
+	//아이디 , 패스워드는 각각의 prompt창에 입력하여 실행할것
+	//normal함수로 만들것..함수명은 login
+	//login호출하여 출력내용 채팅창에.....
+
+	/* function login() {
+	 var id= prompt("아이디를 입력하세요.")
+	 var pw= Number(prompt("암호를 입력하세요."));
+	 doc
+	 if (id=="angel" && pw===1234) {		
+	 document.write("로그인에 성공했습니다. " +id+"님의 방문을 환영합니다.");
+	 } else if (id=="angel" && pw!=1234) {
+	 document.write("잘못된 비밀번호 입니다.");
+	 } else if (id!="angel"){
+	 document.write("존재하지 않는 아이디입니다.");
+	 }
+	 }
+	 login(); */
+	 
+	var rightId = "angel";
+	var rightPw = "1234";
+
+	function login(id, pw) {
+		if (id == rightId) {
+			if (pw == rightPw) {
+				document.write(id + "님 방문을 환영합니다");
+			} else {
+				alert("잘못된 비밀번호 입니다");
+			}
+		} else {
+			alert("존해하지 않는 아이디입니다");
+		}
+	}
+
+	var userId = prompt("아이디를 입력하세여", "");
+	var userPw = prompt("패스워드를 입력하세여", "");
+
+	login(userId, userPw);
+</script>
+</head>
+<body>
+
+</body>
+</html>

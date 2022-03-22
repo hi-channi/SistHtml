@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+a:link {
+	color: black;
+	text-decoration: none; /* 링크 표시 밑줄 지움 */
+}
+
+ul li {
+	list-style: none;
+}
+
+li.main {
+	float: left;
+}
+
+li.main>a {
+	width: 180px;
+	color: red;
+	font-weight: bold;
+	font-family: '궁서체'
+}
+
+ul.submenu {
+	font-size: 12px;
+	font-family: '굴림';
+	padding-left: 0;
+	margin-top: 15px;
+	margin-left: 0;
+}
+
+ul.submenu>li>a {
+	width: 180px;
+	height: 20px;
+	color: orange;
+}
+
+ul.submenu>li>a:hover {
+	color: olive;
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+	<div>
+		<ul>
+			<li class="main"><a href="#">1일차</a>
+				<ul class="submenu">
+					<li><a href="../day0311/tagReview_01.html">1번 예제</a></li>
+					<li><a href="../day0311/cssClass_02.html">2번 예제</a></li>
+					<li><a href="../day0311/cssDiv_05.html">3번 예제</a></li>
+				</ul></li>
+		</ul>
+		<ul>
+			<li class="main"><a href="#">2일차</a>
+				<ul class="submenu">
+					<li><a href="../day0314/tableSpan_01.html">1번 예제</a></li>
+					<li><a href="../day0314/googleFont_04.html">2번 예제</a></li>
+					<li><a href="../day0314/tableImageSpan_06.html">3번 예제</a></li>
+				</ul></li>
+		</ul>
+		<ul>
+			<li class="main"><a href="#">3일차</a>
+				<ul class="submenu">
+					<li><a href="../day0310/helloTest.html">1번 예제</a></li>
+					<li><a href="../day0310/helloTest.html">2번 예제</a></li>
+					<li><a href="../day0310/helloTest.html">3번 예제</a></li>
+				</ul></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = "hello";
+		var b = 100;
+		var c = 3.5;
+		var d = '30';
+
+		// typeof: 저장된 데이터 타입 알아보기
+		document.write(typeof (a) + "<br>");
+		document.write(typeof (b) + "<br>");
+		document.write(typeof (c) + "<br>");
+		document.write(typeof (d) + "<br>");
+
+		document.write((d + 100) + "<br>");
+		document.write((b + 100) + "<br>");
+		var s = "5*6-3"
+		document.write(s + "<br>");
+		document.write(eval(s) + "<br>");
+
+		//isNaN(Not a number): 문자일 경우 true, 숫자일 경우 false 반환
+		document.write(isNaN(100) + "<br>");
+		document.write(isNaN("hello") + "<br>");
+		document.write(isNaN('a100') + "<br>");
+		
+		// 현재날짜출력
+		var date=new date();
+		document.write("date.getFullYear():"+date.getFullYear()+"<Br>");
+		document.write("date.getYear():"+date.getYear()+"<Br>");
+		document.write("date.Month():"+date.getMonth()+"<Br>");
+		document.write("date.Date():"+date.getDate()+"<Br>");
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+window.onload=function(){ //html 컴파일이 다 끝난 뒤 스크립트를 읽어옴(이미지, 영상 모두 로딩 후 스크립트 실행)
+var list='';
+
+list+='<ul>';
+list+='<li>Hello</li>';
+list+='<li>JavScript</li>'
+list+='</ul>';
+
+//document.write(list);
+
+// Html문서의 body 태그에 넣으려면?
+document.body.innerHTML=list;
+}
+
+</script>
+</body>
+</html>

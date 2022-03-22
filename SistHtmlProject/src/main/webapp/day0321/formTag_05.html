@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Dongle:wght@300&family=Jua&display=swap');
+    </style>
+
+    <script type="text/javascript">
+
+        window.onload=function () {
+            out=document.getElementById("out");
+
+            document.getElementById("chkBold").onclick=function () {
+                console.log(this.value);
+                console.log(this.checked);
+                if (this.checked) {
+                    out.style.fontWeight = 'bold';
+                } else
+                    out.style.fontWeight = '';
+            }
+
+            document.getElementById("chkItalic").onclick=function () {
+                if (this.checked) {
+                    out.style.fontStyle = 'italic';
+                } else
+                    out.style.fontStyle = '';
+            }
+
+            document.getElementById("chkUnderline").onclick=function () {
+                if (this.checked) {
+                    out.style.textDecoration = 'underline';
+                } else
+                    out.style.textDecoration = '';
+            }
+        }
+            function changeColor(tcolor) {
+                console.log(tcolor);
+                out.style.color=tcolor;
+            }
+            // 크기 변경
+            function changeSize(tsize) {
+                console.log(tsize);
+                out.style.fontSize=tsize+"pt";
+            }
+            // 글꼴 적용
+            function changeFamily(fontfam) {
+                console.log(fontfam);
+                out.style.fontFamily=fontfam;
+            }
+            // 배경색 적용
+            function changebgColor(bgcolor) {
+                console.log(bgcolor);
+                out.style.backgroundColor=bgcolor;
+            }
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<h2>각종 폼태그 적용</h2>
+1. 글자색 변경<br>
+<input type="color" value="#ffccff" onchange="changeColor(this.value)">
+<br>
+2. 글자크기 변경<br>
+<select onchange="changeSize(this.value)" style="width:50px">
+    <option>10</option>
+    <option>13</option>
+    <option>16</option>
+    <option>20</option>
+    <option>24</option>
+    <option>28</option>
+</select>
+<br>
+3. 글자 속성<br>
+<input type="checkbox" id="chkBold"> 굵게 &nbsp;
+<input type="checkbox" id="chkItalic"> 기울기 &nbsp;
+<input type="checkbox" id="chkUnderline"> 밑줄 &nbsp;
+<br>
+4. 글꼴 선택<br>
+<input type="radio" name="fontfam" value="Dongle" onchange="changeFamily(this.value)">글꼴1
+<input type="radio" name="fontfam" value="Jua" onchange="changeFamily(this.value)">글꼴2
+<input type="radio" name="fontfam" value="Cute Font" onchange="changeFamily(this.value)">글꼴3
+<br>
+5. 배경색 선택<br>
+<select onchange="changebgColor(this.value)" style="width:100px">
+    <option value="red">red</option>
+    <option value="yellow">yellow</option>
+    <option value="pink">pink</option>
+    <option value="olive">sky blue</option>
+    <option value="tomato">tomato</option>
+    <option value="orange">orange</option>
+</select>
+
+<div id="out" style="margin-top: 30px;">재미있는 HTML&CSS&JavaScript</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--1.이벤트  -->
+<button type="button" onclick="hello()">자바스크립트 사용자 함수호출</button>
+
+<!-- 2.이베트 -->
+<button type="button" id="btn1">자바스크립트 이벤트_id접근</button>
+<script type="text/javascript">
+function hello() {
+	alert("두번째 버튼은 자바스크립트 함수호출입니다.")
+}
+
+// btn1에 이벤트 추가
+var b=document.getElementById("btn1");
+b.onclick=function(){
+	
+	alert("3번째 id 접근에서 클릭합니다.")
+}
+</script>
+</body>
+</html>

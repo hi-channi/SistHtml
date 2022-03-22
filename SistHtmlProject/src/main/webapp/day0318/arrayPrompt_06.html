@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 이미지 출력이라는 버튼 생성 후 버튼 클릭시 '출력할 이미지의 인덱스 번호를 입력해주세요' 
+0번 누르면 div에 0번 이미지 나오게...배열 범위 벗어날시 div에 해당번호의 이미지는 없습니다-->
+<title>Insert title here</title>
+<style type="text/css">
+#result{
+   width: 400px;
+   font-size: 15pt;
+   text-align: center;
+   
+}
+#result img {
+   max-width: 300px;/* 300px 넘어야지만 작동, 결과안에 있는 이미지 */
+   
+}
+</style>
+</head>
+<body>
+<button type="button" onclick="writeImage()">이미지출력</button>
+<hr>
+<div id="result"></div>
+<script type="text/javascript">
+var imgarr=new Array();
+
+/* imgarr[0]="../html_img/cook1.jpg";
+imgarr[1]="../html_img/cook2.jpg";
+imgarr[2]="../html_img/cook3.jpg";
+imgarr[3]="../html_img/cook4.jpg";
+imgarr[4]="../html_img/cook5.jpg";
+ */
+ imgarr.push("../image/cook1.jpg");
+ imgarr.push("../image/cook2.jpg");
+ imgarr.push("../image/cook3.jpg");
+ imgarr.push("../image/cook4.jpg");
+ imgarr.push("../image/cook5.jpg");
+ 
+ var r=document.getElementById("result");
+ 
+ function writeImage() {
+    
+    var idx=prompt("출력할 이미지의 인덱스 번호를 입력해주세요",0);
+   
+    if(idx<0 || idx>4)
+       r.innerHTML="해당번호의 이미지는 없습니다";
+   else
+       r.innerHTML="<img src='"+imgarr[idx]+"'>";
+    
+}
+</script>
+</body>
+</html>

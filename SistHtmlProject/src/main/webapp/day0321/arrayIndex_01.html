@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#photo {
+	position: absolute;
+	left: 500px;
+	top: 200px;
+	width: 400px;
+	height: 500px;
+	border: 5px groove gray;
+}
+
+#btnRandom {
+	margin-left: 400px;
+	width: 80px;
+	height: 80px;
+}
+</style>
+
+<script type="text/javascript">
+	window.onload = function() {
+		var imgarr = new Array();
+
+		imgarr.push("../image/c1.png");
+		imgarr.push("../image/c2.png");
+		imgarr.push("../image/c3.png");
+		imgarr.push("../image/c4.png");
+		imgarr.push("../image/c5.png");
+		imgarr.push("../image/m01.jpg");
+		imgarr.push("../image/m02.jpg");
+		imgarr.push("../image/m03.jpg");
+		imgarr.push("../image/m04.jpg");
+		imgarr.push("../image/m05.jpg");
+
+		// 초기 이미지 요소값 획득 후 난수 값 얻기
+		var photo = document.getElementById("photo");
+		var idx = parseInt(Math.random() * 10);
+		photo.setAttribute("src", imgarr[idx]);
+		
+		document.getElementById("btnRandom").onclick = function() {
+			//alert("클릭");
+			var idx = parseInt(Math.random() * 10);
+			photo.setAttribute("src", imgarr[idx]);
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="image" src="../image/flower_ani/f1.png" id="btnRandom">
+	<marquee width="500" direction="left" behavior="slide">
+		<img alt="" src="../image/01.png" width="50"> <b>왼쪽 버튼을 누르면
+			이미지가 바뀝니다.</b>
+	</marquee>
+	<img id="photo">
+</body>
+</html>

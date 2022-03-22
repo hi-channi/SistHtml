@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 꽃을 클릭하면 div에 꽃 사진이 나옴 -->
+<script type="text/javascript">
+	window.onload = function() {
+		var r = document.getElementById("result");
+		var minions = document.getElementById("minions");
+		var flower = document.getElementById("flower");
+		var fruit = document.getElementById("fruit");
+
+		minions.onclick = function() {
+			var qq = confirm("미니언즈를 출력할까요??");
+			if(qq) {
+			var img1 = "<img alt='' src='/SistHtmlProject/image/01.png'>";
+			}
+			r.innerHTML += img1;
+		}
+
+		flower.onclick = function() {
+			var qq = confirm("꽃을 출력할까요??");
+			if(qq) {
+			var img1 = "<img alt='' src='/SistHtmlProject/image/flower_ani/f1.png'>";
+			}
+			r.innerHTML += img1;
+		}
+
+		fruit.onclick = function() {
+			var qq = confirm("과일을 출력할까요??");
+			if(qq) {
+			var img1 = "<img alt='' src='/SistHtmlProject/image/flower_ani/f16.png'>";
+			}
+			r.innerHTML += img1;
+		}
+	}
+</script>
+
+</head>
+<body>
+	<button id="minions">미니언즈</button>
+	<button id="flower">꽃</button>
+	<button id="fruit">과일</button>
+
+	<div id="result"></div>
+
+
+</body>
+</html>
