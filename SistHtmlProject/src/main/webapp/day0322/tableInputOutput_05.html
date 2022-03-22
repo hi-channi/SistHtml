@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	width: 500px;
+	border: 3px solid gray;
+	border-collapse: collapse;
+}
+
+th, th {
+	border: 1px dotted gray;
+	font-size: 10pt;
+}
+
+tr {
+	height: 50px;
+}
+</style>
+<script type="text/javascript">
+	window.onload = function() {
+		result = document.getElementById("result");
+
+		document.getElementById("btnResult").onclick = function() {
+			var s = "<h4>폼 태그 결과 출력</h4>";
+
+			s += "입사하고 싶은 회사: " + frm.company.value + "<br>";
+			s += "나의 신장: " + frm.height.value + "cm<br>";
+			s += "나의 체중: " + frm.weight.value + "kg<br>";
+			s += "나의 호감도: " + pop.value + "<br>";
+
+			result.innerHTML = s;
+		}
+
+		pop = document.getElementById("pop");
+		popout = document.getElementById("popout");
+
+		document.getElementById("btnPop").onclick = function() {
+			//20~100 사이의 난수 출력
+			var p = parseInt(Math.random() * 81) + 20;
+			var i = 0;
+			interval = setInterval(function() {
+				i++;
+				pop.value = i;
+				popout.innerHTML = "<b style='color:red;'>" + i + "</b>";
+				if (i == p) {
+					clearInterval(interval);
+				}
+			}, 30)
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="#" name="frm">
+		<table>
+			<caption>[복습 출력]</caption>
+			<tr>
+				<td><b>입사하고 싶은 회사 및 분야는?</b> <input type="text" name="company"
+					list="work" style="width: 150px"> <datalist id="work">
+						<option value="네이버">
+						<option value="카카오">
+						<option value="라인">
+						<option value="쿠팡">
+						<option value="배달의민족(우아한형제들)">
+						<option value="당근마켓">
+						<option value="토스(비바리퍼블리카)">
+					</datalist></td>
+			</tr>
+
+			<tr>
+				<td><b>당신의 키와 몸무게를 선택하세요.</b> <input type="number"
+					name="height" min="150" max="210" step="5" value="170"
+					placeholder="키">&nbsp;cm &nbsp;&nbsp; <input type="number"
+					name="weight" min="40" max="100" step="5" value="60"
+					placeholder="체중">&nbsp;kg</td>
+			</tr>
+
+			<tr>
+				<td><b>당신에 대한 호감도는?</b> <progress id="pop" value="0" max="100"></progress>
+					&nbsp;&nbsp; <span id="popout">0</span>&nbsp;&nbsp;
+					<button type="button" id="btnPop">측정</button></td>
+			</tr>
+
+			<tr>
+				<td align="center">
+					<button type="button" id="btnResult"
+						style="width: 200px; font-size: 13pt;">결과 확인</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+
+	<div id="result"
+		style="font-size: 13pt; margin-top: 10px; text-align: center; width: 500px;">
+		[결과 확인]</div>
+</body>
+</html>

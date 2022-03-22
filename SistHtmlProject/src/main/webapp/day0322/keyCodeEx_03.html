@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 처음위치 500, 300으로 설정, 방향에 따라 10씩 이동하며 엔터 입력 시 초기화-->
+<style type="text/css">
+#myimg {
+	position: absolute;
+}
+</style>
+<script type="text/javascript">
+	var myimg;
+	var xpos = 500;
+	var ypos = 300;
+
+	window.onload = function() {
+
+		myimg = document.getElementById("myimg");
+		myimg.style.top = ypos + "px";
+		myimg.style.left = xpos + "px";
+
+		// Enter: 19, 방향키 상: 38, 하: 40, 좌: 37, 우: 39
+
+		window.onkeydown = function(e) {
+			switch (e.keyCode) {
+			case 38:
+				ypos-=10;
+				myimg.style.top = ypos + "px";
+				break;
+			case 37:
+				xpos-=10;
+				myimg.style.left = xpos + "px";
+				break;
+			case 39:
+				xpos+=10;
+				myimg.style.left = xpos + "px";
+				break;
+			case 40:
+				ypos+=10;
+				myimg.style.top = ypos + "px";
+				break;
+			case 13:
+				xpos = 500;
+				ypos = 300;
+				myimg.style.top = ypos + "px";
+				break;
+			}
+
+		}
+
+	}
+</script>
+</head>
+<body>
+<h3 style="text-align: center">방향키를 사용해 미니언즈를 움직이세요</h3>
+	<img alt="" src="../image/03.png" id="myimg">
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+#can {
+	border: 5px solid gray;
+}
+
+#clr {
+	margin-left: 300px;
+}
+
+#clr div {
+	width: 30px;
+	height: 30px;
+	border: 1px solid black;
+	cursor: pointer;
+	float: left;
+	margin-left: 3px;
+}
+
+#clear, #eraser {
+	width: 130px;
+	height: 40px;
+	border: 2px solid gray;
+	border-radius: 50px;
+	line-height: 40px;
+	margin-left: 20px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+}
+</style>
+<script type="text/javascript">
+window.onload=function() {
+	var can=document.getElementById("can");
+	var ctx=can.getContext("2d");
+	
+	var preX, preY;
+	var draw=false;
+	
+	ctx.strokeStyle="black";
+	ctx.lineCap="round";
+	
+	var idx=1;
+	
+	can.onmousedown=function(e) {
+		
+		console.log("onmousedown");
+		draw=true; // 마우스를 클릭한 채 움직일 때만 그림을 그리기 위해 true
+		
+		// 클릭한 지점에서 선이 시작되도록 좌표 저장
+		preX=e.pageX; // 현재 마우스 위치 x좌표
+		preY=e.pageY; // 현재 마우스 위치 y좌표
+		
+	}
+	
+	// move 이벤트
+	can.onmousemove=function(e) {
+		console.log("onmousemove");
+		if(draw==true) {
+			if(idx==1) {
+				ctx.beginPath();
+				ctx.lineWidth=2;
+				ctx.moveTo(preX,preY);// 직전좌표로 이동
+				ctx.lineTo(e.pageX, e.pageY) //직전 좌표로 부터 현재 좌표까지의 선
+				ctx.stroke();
+				ctx.closePath();
+				
+			} else if (idx==2) {
+				ctx.fillRect(e.pageX, e.pageY, 50, 50);
+			}
+			preX=e.pageX;
+			preY=e.pageY;
+		}
+	}
+	
+	// 마우스 떼면 선 그리기 멈춤
+	can.onmouseup=function() {
+		console.log("onmouseup");
+		draw=false;
+	}
+	
+	// 캔버스 초기화(전체 삭제)
+	document.getElementById("clear").onclick=function() {
+		ctx.fillStyle="#ffffff" // 배경색을 흰색으로
+		ctx.fillRect(0, 0, can.width, can.height);
+	}
+	
+	// 선 색 변경하기(jQuery 맛보기)
+	$("#clr>div").click(function() {
+		idx=1;
+		
+		// 현재 div 태그의 배경색 속성값을 얻어 선 색 변경하기
+		ctx.strokeStyle=$(this).css("background-Color");
+		
+	});
+	
+	$("#eraser").click(function() {
+		idx=2;
+		ctx.strokeStyle="#ffffff";
+		ctx.fillStyle="#ffffff";s
+	})
+	
+}
+
+</script>
+</head>
+<body>
+	<h2>Canvas 활용한 간단 그림판</h2>
+	<canvas id="can" width="1000" height="500"></canvas>
+	<div id="clr">
+		<div style="background-color: #ff00ff;"></div>
+		<div style="background-color: #00bfff;"></div>
+		<div style="background-color: #ff69b4;"></div>
+		<div style="background-color: #00ff00;"></div>
+		<div style="background-color: #c71585;"></div>
+		<div style="background-color: #afeeee;"></div>
+		<div style="background-color: #ff0000;"></div>
+		<div style="background-color: #ffff00;"></div>
+		<div style="background-color: #ee82ee;"></div>
+		<div style="background-color: #ff62ff;"></div>
+	</div>
+	<div id="clear">화면 초기화</div>
+	<div id="eraser">지우개</div>
+</body>
+</html>

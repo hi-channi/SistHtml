@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function() {
+
+		// 캔버스(paper1)에 그림을 그리기 위한 작업
+		var paper1 = document.getElementById("paper1");
+		// context는 자바의 Graphics >> 그림을 그리는 메소드를 가짐
+		var context = paper1.getContext("2d");
+
+		// 선 그리기
+		context.lineWidth = 5; // 선 굵기;
+		context.strokeStyle = "red"; // 선 색상
+		context.lineCap = "round";
+		context.beginPath(); // 선 그리기 시작
+
+		// 원하는 위치로 이동
+		context.moveTo(10, 10);
+
+		// 선 그리기
+		context.lineTo(100, 10);
+		context.lineTo(50, 100);
+		context.lineTo(10, 10);
+
+		// 실행
+		context.stroke();
+		context.closePath(); // 선 그리기 종료
+
+		// 사각형 그리기
+		context.lineWidth = 2;
+		context.strokeStyle = "magenta";
+		context.fillStyle = "yellow"; // 채우기 색
+		context.strokeRect(120, 10, 150, 100); // 테두리만 있는 사각형
+		context.fillRect(300, 10, 150, 100); // 채우기 사각형
+	
+		// 글자 넣기
+		context.lineWidth=1;
+		context.strokeStyle="tomato";
+		context.fillStyle="cyan";
+		context.font="30pt Comic Sans Ms"
+		// 글자 그림자
+		context.shadowOffsetX=5;
+		context.shadowOffsetY=2;
+		context.shadowBlur=2;
+		context.shadowColor="gray";
+		context.fillText("Happy", 100, 150);
+		context.strokeText("HTML5", 300, 250);
+	}
+	
+</script>
+</head>
+<body>
+	<h2>캔버스에 그림 그리기</h2>
+	<canvas id="paper1" width="500" height="500"
+		style="border: 3px solid gray;"></canvas>
+</body>
+</html>

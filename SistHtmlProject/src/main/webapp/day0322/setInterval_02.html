@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+#myimg {
+	position: absolute;
+}
+
+#btnStart{
+margin-left: 400px;
+width: 150px;
+font-size: 20pt;
+top:200px;
+position: relative;
+}
+
+#btnStop{
+margin-left: 400px;
+width: 150px;
+font-size: 20pt;
+top:200px;
+position: relative;
+}
+</style>
+<script type="text/javascript">
+	var myimg;
+	var xpos = 0;
+	var ms = 100;
+	var inter;
+
+	window.onload = function() {
+		myimg = document.getElementById("myimg");
+
+		document.getElementById("btnStart").onclick = function()
+		{
+			inter = setInterval(function() {
+				myimg.style.left = xpos + "px";
+				xpos += 10;
+			}, ms)
+		}
+		document.getElementById("btnStop").onclick = function() {
+			clearInterval(inter);
+		}
+		
+		window.onkeyup=function(e) {
+			console.log(e.keyCode); // 키코드를 console에 찍어냄
+			// Enter: 19, 방향키 상: 38, 하: 40, 좌: 37, 우: 39
+		}
+	}
+</script>
+</head>
+<body>
+	<img alt="" src="../image/m01.jpg" id="myimg">
+	<br>
+	<br>
+	<button type="button" id="btnStart">GO</button>
+	<button type="button" id="btnStop">STOP</button>
+</body>
+</html>
