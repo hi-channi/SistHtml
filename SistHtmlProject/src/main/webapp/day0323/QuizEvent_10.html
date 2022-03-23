@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+	<img alt="" src="">
+	<img alt="" src="">
+	<img alt="" src="">
+	<img alt="" src="">
+	<img alt="" src="">
+
+	<script type="text/javascript">
+		/* 모든 이미지에 같은 이미지를 넣고 너비, 높이, 테두리 설정
+		 img 태그에 마우스를 올리면 5개의 이미중 한개를 랜덤으로 구한 후 src에 변경 */
+
+		$("img").css({
+			"width" : "200px",
+			"height" : "200px",
+			"border" : "2px solid gold"
+		}).attr("src", "../image/01.png");
+
+		var imgarr = [ "../image/02.png", "../image/03.png", "../image/04.png",
+				"../image/05.png", "../image/06.png" ];
+
+		$("img:eq(0)").mouseover(function() {
+			rnd = parseInt(Math.random() * 5);
+			$("img:eq(0)").attr("src", imgarr[rnd]);
+		})
+
+		$("img:eq(1)").mouseover(function() {
+			rnd = parseInt(Math.random() * 5);
+			$("img:eq(1)").attr("src", imgarr[rnd]);
+		})
+
+		$("img:eq(2)").mouseover(function() {
+			rnd = parseInt(Math.random() * 5);
+			$("img:eq(2)").attr("src", imgarr[rnd]);
+		})
+
+		$("img:eq(3)").mouseover(function() {
+			rnd = parseInt(Math.random() * 5);
+			$("img:eq(3)").attr("src", imgarr[rnd]);
+		})
+
+		$("img:eq(4)").mouseover(function() {
+			rnd = parseInt(Math.random() * 5);
+			$("img:eq(4)").attr("src", imgarr[rnd]);
+		})
+
+		$("img:eq(5)").mouseover(function() {
+			rnd = parseInt(Math.random() * 5);
+			$("img:eq(5)").attr("src", imgarr[rnd]);
+		})
+
+		$("img").mouseout(function() {
+			$("img").attr("src", "../image/01.png");
+		})
+	</script>
+
+</body>
+</html>

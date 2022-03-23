@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<!-- 
+input[type="타입"] selector를 구체적으로 사용하면 선택적으로 적용 가능
+input {background-color:yellow} 전체배경 노랑
+input[type=text] {border: 1px dotted gray;}: 텍스트 input만 테두리를 회색 점선으로
+input[type=button] {border: 1px solid red;}: 버튼 input만 테두리를 빨강 실선으로
+
+text() - 선택 요소의 텍스트를 설정하거나 해당값 반환
+html() - 선택 요소의 컨텐츠 자체를 설정하거나 해당 값 반환
+val() - 폼필드의 값을 설정하거나 해당 값 반환
+ -->
+ 
+<h3>R,G,B 색상 입력하기</h3>
+R:<input type="text" id="txtr" value="255">&nbsp;&nbsp;&nbsp;
+G:<input type="text" id="txtg" value="0">&nbsp;&nbsp;&nbsp;
+B:<input type="text" id="txtb" value="255">&nbsp;&nbsp;&nbsp;
+
+<div></div>
+
+<script type="text/javascript">
+$("input[type='text']").css({
+	"border":"2px solid gray",
+	"width":"100px",
+	"height": "30px",
+	"font-size":"17pt",
+	
+});
+
+var r=255, g=0, b=255;
+var color="rgb("+r+","+g+","+b+")";
+$("div").css({
+	"width":"400px",
+	"height":"200px",
+	"border":"5px solid gray",
+	"background-color":color,
+	"margin-top":"50px"
+	});
+
+//R		
+$("#txtr").keyup(function() {
+	if(isNaN($(this).val()))
+		return; // 숫자가 아닐 경우 함수 종료
+	r=$(this).val();
+	color="rgb("+r+","+g+","+b+")";
+	$("div").css("background-color",color);
+});
+
+//G
+$("#txtg").keyup(function() {
+	if(isNaN($(this).val()))
+		return;
+	g=$(this).val();
+	color="rgb("+r+","+g+","+b+")";
+	$("div").css("background-color",color);
+});
+
+//B
+$("#txtb").keyup(function() {
+	if(isNaN($(this).val()))
+		return;
+	b=$(this).val();
+	color="rgb("+r+","+g+","+b+")";
+	$("div").css("background-color",color);
+});
+
+// 오류 해결: 반드시 selector로 id 호출할 때 # 빼먹지 말 것
+
+</script>
+</body>
+</html>

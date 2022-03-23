@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+	<h3 class="a"></h3>
+	<hr>
+	<h3 class="b">h3의 내용을 이곳에 복사하세요.</h3>
+
+	<script type="text/javascript">
+		$("h3.a").html("캐릭터 인형 입니다.").append("<img src='../image/nago.jpg'>");
+
+		// Q1. h3.a에서 클릭하면 "안의 코드를 복사하였습니다."라고 나오게 하고 h3.b에서 클릭을 하면 그 내용이 그대로 출력되도록 하기
+
+		$("h3.a").click(function() {
+			tag = $(this).html();
+			alert("코드를 복사했습니다.");
+		});
+
+		$("h3.b").click(function() {
+			$("h3.b").html(tag);
+			$("h3.b").append(tag);
+		});
+	</script>
+</body>
+</html>

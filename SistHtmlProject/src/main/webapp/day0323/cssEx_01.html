@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	//javascript의 window.onload와 동일
+	$(function() {
+		//alert("load");
+		// css 함수: style 변경
+		// css (속성): 해당 요소 속성에 대한 값을 반환
+		// css (속성, 값): 속성을 해당 값으로 변경
+		// $(selector): $안에 접근을 위한 요소값을 selector
+
+		// 모든 b태그의 글꼴 크기를 17pt로 변경하기
+		$("b").css("font-size", "17pt");
+
+		// b태그 중에서 클래스명이 happy인 태그의 배경색을 tomato로 변경
+		$("b.happy").css("background-color", "tomato");
+
+		// 모든 h2태그의 border를 변경하고 글자색을 red로 변경
+		//$("h2").css("border","3px solid pink").css("color","red"); // 방법 1
+		$("h2").css({
+			"border" : "5px groove gold",
+			"color" : "gray"
+		}); // 방법 2
+
+		// 모든 이미지 속성인 src를 변경
+		// 스타일 변경은 css, 속성 변경은 attr을 사용
+		// 이미지의 width 속성도 변경
+
+		//$("img").attr("src","../image/부대찌개.png");
+		//$("img").css("width","200px");
+
+		//$("img").attr("src","../image/부대찌개.png").css("width","200px");
+
+		// 스타일 여러 개로 변경할 경우 >> 이미지, width, border
+		$("img").attr("src", "../image/김치찌개.png").css({
+			"width" : "300px",
+			"border" : "3px dash olive"
+		});
+
+		// Q1. id가 yourimg인 이미지, 너비를 변경
+		$("#yourimg").attr("src", "../image/m02.jpg").css("width", "100px");
+
+		// Q2. img 태그 중 클래스명이 myimg의 이미지 변경, width/border-radius/border/box-shadow를 변경
+		$('img.myimg').attr("src", "../image/m03.jpg").css({
+			"width" : "300px",
+			"border-radius" : "50px",
+			"border" : "3px solid yellow",
+			"box-shadow" : "5px 5px 5px gray"
+		});
+
+		$("span.nice").css({
+			"background-color" : "pink",
+			"color" : "blue",
+			"font-size" : "1.5em"
+		});
+
+	})
+</script>
+</head>
+<body>
+
+	<h2>jQuery에서 제일 많이 사용하는 함수 css,attr</h2>
+	<b class="happy">B Tag Class happy</b>
+	<b>B Tag</b>
+	<br>
+	<span class="nice">Span Tag Class nice</span>
+	<br>
+	<h2 class="happy">H2 Tag Class happy</h2>
+
+	<h2>내가 좋아하는 이미지들</h2>
+
+	<img alt="" src="">
+	<img class="myimg">
+	<img>
+	<img id="yourimg" src="">
+
+</body>
+</html>
