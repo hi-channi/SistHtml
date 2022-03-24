@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+div {
+	border: 1px solid gray;
+	width: 500px;
+	margin-bottom: 10px;
+	padding: 20px 20px 20px 20px;
+}
+</style>
+
+</head>
+<body>
+
+	<h3>폼태그 연습 #1</h3>
+	<div>
+		<b>아이디</b> <input type="text" style="width: 100px;"> <b>암호</b>
+		<input type="password" style="width: 100px;">
+	</div>
+
+	<script type="text/javascript">
+		$("input:text, input:password").focus(function() {
+			$(this).css("background-color", "yellow")
+		})
+
+		$("input:text, input:password").mouseout(function() {
+			$(this).css("background-color", "white")
+		})
+	</script>
+
+	<h3>폼태그 연습 #2</h3>
+	<div>
+		<input type="checkbox" id="cbk">운전면허 &nbsp;&nbsp;
+		<button type="button" id="btn1">확인</button>
+		&nbsp;&nbsp; <span></span>
+	</div>
+
+	<script type="text/javascript">
+		$("#btn1").click(function() {
+			var a = $("#cbk").val(); // 무조건 on (value 미지정 시)
+			var b = $("#cbk").is(":checked"); // 체크 상태에 따라서 true/false
+
+			$("span:eq(0)").html(a + "," + b);
+		});
+	</script>
+
+	<h3>폼태그 연습 #3</h3>
+	<div>
+		<input type="radio" name="city" value="서울"> 서울 <input
+			type="radio" name="city" value="경기"> 경기 <input type="radio"
+			name="city" value="인천"> 인천 <input type="radio" name="city"
+			value="부산"> 부산 <input type="radio" name="city" value="광주">
+		광주 <br>
+		<button type="button" id="btn2">결과 출력</button>
+		<span></span>
+
+	</div>
+
+	<script type="text/javascript">
+		$("#btn2").click(function() {
+			var data = $("input[name='city']:checked").val(); //체크된 값 가져오기
+			$("span:eq(1)").html(data);
+		});
+	</script>
+
+	<h3>폼태그 연습 #4</h3>
+	<div>
+		<h3>구현가능한 컴퓨터 언어는?</h3>
+		<input type="checkbox" name="comp" value="java">Java <input
+			type="checkbox" name="comp" value="jquery">jQuery <input
+			type="checkbox" name="comp" value="javascript">JavaScript <input
+			type="checkbox" name="comp" value="spring">Spring <input
+			type="checkbox" name="comp" value="oracle">Oracle
+
+		<button type="button" id="btn3">가능 언어 출력</button>
+		<br> <span></span>
+	</div>
+
+	<script type="text/javascript">
+		$("#btn3").click(function() {
+			//체크된 항목 갯수 파악
+			var lang = $("input[name='comp']:checked").length;
+			var langStr = "체크된 항목: " + lang + "개";
+			if (lang == 0) {
+				langStr += "<br> 가능한 언어 없음"
+			} else {
+				langStr += "<br>";
+				$("input[name='comp']:checked").each(function(i, element) {
+					langStr += $(this).val() + "&nbsp;";
+				})
+			}
+			$("span:eq(2)").html(langStr);
+		});
+	</script>
+
+	<h3>폼태그 연습 #5</h3>
+	<div>
+		<select id="selone">
+			<option value="red">피보다 진한 빨강</option>
+			<option value="blue">새파랗게 질린 파랑</option>
+			<option value="yellow">노랑노랑 개나리</option>
+			<option value="orange">과즙팡팡 오렌지</option>
+		</select>
+		<button type="button" id="btn4">주스 착즙</button>
+		<br> <span></span>
+	</div>
+	
+	<script type="text/javascript">
+	$("#btn4").click(function () {
+		var seltext=$("#selone option:selected").text(); // text 가져오기
+		var selval=$("#selone").val(); // value 가져오기
+		
+		var s="선택 text: "+seltext;
+		s+="선택 val: "+selval;
+		
+		s="<b style='color:"+selval+"'>"+seltext+"</b>";
+		
+		$("span:eq(3)").html(s);
+	});
+
+	</script>
+
+</body>
+</html>

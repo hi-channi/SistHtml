@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+.bg_0 {
+	background-color: orange;
+	color: black;
+}
+.bg_1 {
+	background-color: pink;
+	color: green;
+}
+.bg_2 {
+	background-color: gold;
+	color: blue;
+}
+.bg_3 {
+	background-color: tomato;
+	color: gray;
+}
+.bg_4 {
+	background-color: cyan;
+	color: white;
+}
+</style>
+</head>
+<body>
+	<b></b>
+	<b></b>
+	<b></b>
+	<b></b>
+	<b></b>
+	<!-- 태그를 반복할 때 사용하는 each문 -->
+	<script type="text/javascript">
+		// b태그의 개수만큼 자동 반복
+		// i는 index: 0~
+		// element는 index에 해당하는 b태그: 생략가능
+		$("b").each(function(i, element) {
+			//$(this).text(i);
+			$(element).text(i);
+		})
+	</script>
+
+	<ul>
+		<li>apple</li>
+		<li>kiwi</li>
+		<li>banana</li>
+		<li>strawberry</li>
+		<li>mango</li>
+	</ul>
+
+	<script type="text/javascript">
+		/* $("ul li").each(function(idx) {
+		 $(this).addClass("bg_"+idx);	
+		 }) */
+
+		$("ul li").each(function(idx, ele) {
+			$(ele).addClass("bg_" + idx);
+		});
+		
+		
+		// li에 마우스를 올리면 **** 출력 >> append vs after
+		$("ul li").mouseover(function () {
+			$(this).append("<b>***</b>")
+		});
+
+		/* $("ul li").mouseout(function () {
+			$(this).after("<b>***</b>")
+		}) */
+		
+		// 마우스 벗어나면 b태그 제거
+		$("ul li").mouseout(function() {
+			// find: 하위 태그 중에서 찾고자 하는 태그를 찾음
+			$(this).find("b").remove();
+			//$(this).next().remove();		// 다음 태그를 싸그리 지움
+		
+		});
+		
+		
+	</script>
+</body>
+</html>

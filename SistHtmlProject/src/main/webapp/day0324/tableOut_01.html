@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+	<table class="table table-bordered" style="width: 400px">
+		<tr>
+			<th width="100">이름</th>
+			<td width="300"><input type="text" id="name"
+				style="width: 150px">
+		</tr>
+		<tr>
+			<th width="100">JAVA</th>
+			<td width="300"><input type="text" id="java"
+				style="width: 150px">
+		</tr>
+		<tr>
+			<th width="100">ORACLE</th>
+			<td width="300"><input type="text" id="oracle"
+				style="width: 150px">
+		</tr>
+		<tr>
+			<th width="100">HTML</th>
+			<td width="300"><input type="text" id="html"
+				style="width: 150px">
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<button type="button" id="btn">결과 출력</button>
+			</td>
+		</tr>
+
+		<tr height="150">
+			<td colspan="2" align="center">
+				<div id="result"></div>
+			</td>
+		</tr>
+
+	</table>
+<script type="text/javascript">
+$("#btn").click(function() {
+	var name=$("#name").val();
+	var java=$("#java").val();
+	var oracle=$("#oracle").val();
+	var html=$("#html").val();
+	
+	// 입력폼을 비웠거나 숫자가 아닌 값이 입력 되었을 때
+	if(name.length==0) {
+		alert("이름을 입력해 주세요.");
+		$("#name").focus();
+		return;
+	}
+	if(isNaN(java) || java.length==0) {
+		alert("JAVA는 숫자만 입력 가능합니다.");
+		$("#java").focus();
+		return;
+	}
+	if(isNaN(oracle) || oracle.length==0) {
+		alert("ORACLE는 숫자만 입력 가능합니다.");
+		$("#oracle").focus();
+		return;
+	}
+	if(isNaN(html) || html.length==0) {
+		alert("HTML는 숫자만 입력 가능합니다.");
+		$("#html").focus();
+		return;
+	}
+	
+	var sum=parseInt(java)+parseInt(oracle)+parseInt(html);
+	var avg=sum/3;
+	
+	var s="이름: "+name+"<br>";
+	s+="JAVA 점수: "+java+"점<br>";
+	s+="ORACLE 점수: "+oracle+"점<br>";
+	s+="HTML 점수: "+html+"점<br>";
+	s+="<b>총점: "+sum+"<br>";
+	s+="평균: "+sum+"</b><br>";
+	
+	$("#result").html(s).css({"font-size":"18pt","font-family":"Noto Sans KR"});
+	
+	
+})
+
+</script>
+</body>
+</html>

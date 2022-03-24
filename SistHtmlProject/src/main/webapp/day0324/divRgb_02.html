@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<div>0</div>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<span></span>
+</body>
+<script type="text/javascript">
+	$("div").css({
+		"width" : "120px",
+		"height" : "120px",
+		"border" : "1px solid gray",
+		"float" : "left",
+		"font-size" : "20pt",
+		"text-align" : "center",
+		"line-height" : "120px",
+		"cursor" : "pointer"
+	});
+
+	$("span").css("font-size", "20pt");
+
+	for (var i = 0; i < $("div").length; i++) {
+		// rgb 색상 얻기
+		var r = parseInt(Math.random() * 256);
+		var g = parseInt(Math.random() * 256);
+		var b = parseInt(Math.random() * 256);
+
+		var color = "rgb(" + r + "," + g + "," + b + ")";
+
+		$("div").eq(i).css("background-color", color);
+	}
+	
+	// 각 div를 클릭할 경우 해당 div의 배경색(rgb)을 얻어 span 태그에 출력
+	$("div").click(function() {
+		var bg = $(this).css("background-color");
+		$("span").text(bg);
+		return;
+	});
+</script>
+</html>

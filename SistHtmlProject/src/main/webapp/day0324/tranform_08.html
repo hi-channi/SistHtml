@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+	<img alt="" src="../image/c1.png" width="100">
+	<img alt="" src="../image/c2.png" width="100">
+	<img alt="" src="../image/c3.png" width="100">
+	<img alt="" src="../image/c4.png" width="100">
+
+	<script type="text/javascript">
+		$("img:eq(0)").hover(function() {
+			// 마우스를 올렸(내렸)을 때 180도(원래대로) 이동
+			$(this).css("transform", "rotate(180deg)");
+		}, function() {
+			$(this).css("transform", "rotate(0deg)");
+		});
+		
+		$("img:eq(1)").hover(function() {
+			// 45도 회전
+			$(this).css("transform", "rotate(-45deg)");
+		}, function() {
+			$(this).css("transform", "rotate(0deg)");
+		});
+		
+		$("img:eq(2)").hover(function () {
+			// 확대(x, y)
+			$(this).css("transform","scale(2,2)")
+		}, function () {
+			$(this).css("transform","scale(1,1)")
+		});
+		
+		$("img:eq(3)").hover(function () {
+			// 현재 위치에서 이동
+			$(this).css("transform","translate(50px, 50px)")
+		}, function () {
+			$(this).css("transform","translate(-10px, -10px)")
+		});
+	</script>
+
+</body>
+</html>
