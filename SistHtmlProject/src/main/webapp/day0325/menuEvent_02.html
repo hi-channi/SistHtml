@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+
+div.sist {
+position: absolute;
+left: 300px;
+top: 100px;
+width: 250px;
+height: 300px;
+border: 2px groove gray;
+border-radius: 30px;
+}
+
+ul li {list-style: none;}
+
+ul.menu>li {
+font-size: 1.5em;
+font-weight: bold;
+font-family: 'Noto Sans KR'
+}
+ul.submenu>li {
+font-size: 15px;
+font-weight: bold;
+font-family: 'Noto Sans KR'
+}
+
+</style>
+</head>
+<body>
+<script type="text/javascript">
+$(function () {
+	// 모든 서브메뉴 숨기기
+	$("ul.submenu").hide('slow');
+	
+	$("ul.menu>li").click(function() {
+		// 메인메뉴를 클릭 시 해당 메뉴의 서브메뉴가 나타나야 함 
+		$(this).find("ul.submenu").show('slow');
+		// 해당 메뉴의 서브메뉴를 제외한 다른 메뉴의 서브메뉴 숨기기.
+		$(this).siblings().find("ul.submenu").hide('slow');
+	});
+})
+
+</script>
+<div class="sist">
+	<ul class="menu">
+		<li>File
+			<ul class="submenu">
+			<li>New</li>
+			<li>Open File</li>
+			<li>Save</li>
+			<li>Rename</li>
+		</ul>
+	</li>
+	</ul>
+	<ul class="menu">
+		<li>Edit
+			<ul class="submenu">
+			<li>Cut</li>
+			<li>Copy</li>
+			<li>Find</li>
+			<li>Add</li>
+		</ul>
+	</li>
+	</ul>
+	<ul class="menu">
+		<li>Help
+			<ul class="submenu">
+			<li>Search</li>
+			<li>Tip</li>
+			<li>Check</li>
+			<li>About</li>
+		</ul>
+	</li>
+	</ul>
+</div>
+
+</body>
+</html>

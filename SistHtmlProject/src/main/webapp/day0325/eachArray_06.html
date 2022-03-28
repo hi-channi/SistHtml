@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+div.box {
+	border: 5px solid tomato;
+	margin-top: 20px;
+	width: 350px;
+	font-family: 'Noto Sans KR';
+	font-size: 2em;
+
+}
+</style>
+</head>
+<body>
+	<h3>배열 반복시 사용하는 $.each문</h3>
+	<script type="text/javascript">
+		var data1 = [ "red", "blue", "magenta", "green", "gray", "orange" ];
+
+		$.each(data1,
+				function(i, ele) { // i: 인덱스, ele: 요소(인덱스에 해당하는 아이템 값)
+					var s = "<h2 style='color: "+ele+"; width:200px;'>" + ele
+							+ "</h2>";
+					document.write(s);
+
+				})
+	</script>
+	<hr>
+	<div id='show'></div>
+	<script type="text/javascript">
+		var info = [ {
+			name : "이영자",
+			call : "010-3333-4444",
+			addr : "서울시"
+		}, {
+			name : "유재석",
+			call : "010-5555-1144",
+			addr : "경기도"
+		}, {
+			name : "강호동",
+			call : "010-1212-0000",
+			addr : "부산시"
+		} ];
+		
+		var s="";
+		$.each(info, function(i, elt) {
+			s+="<div class='box'>";
+			s+="이름:"+elt.name+"<br>";
+			s+="휴대전화:"+elt.call+"<br>";
+			s+="거주지:"+elt.addr+"<br>";
+			s+="</div>";
+			
+			$("#show").html(s);
+			});
+	</script>
+</body>
+</html>

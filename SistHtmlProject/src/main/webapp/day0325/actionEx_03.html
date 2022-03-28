@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style type="text/css">
+#msg {
+	font-size: 2em;
+	position: absolute;
+	left: 100px;
+	top: 150px;
+}
+
+#img {
+	position: absolute;
+	left: 500px;
+	top: 150pxl
+}
+
+button {
+	width: 100px;
+	height: 30px;
+}
+</style>
+</head>
+<body>
+	<button type="button" id="btn1">Hide</button>
+	<button type="button" id="btn2">Show</button>
+	<button type="button" id="btn3">Toggle</button>
+	<br>
+	<button type="button" id="btn4">SlideUp</button>
+	<button type="button" id="btn5">SlideDown</button>
+	<button type="button" id="btn6">SlideToggle</button>
+	<br>
+	<button type="button" id="btn7">FadeOut</button>
+	<button type="button" id="btn8">FadeIn</button>
+	<button type="button" id="btn9">FadeToggle</button>
+	<button type="button" id="btn0">FadeTo</button>
+	<br>
+
+	<div id="msg">Happy Friday!</div>
+	<img alt="" src="../image/c1.png" id="img">
+
+	<script type="text/javascript">
+		$("#btn1").click(function() {
+			$("#msg").hide('slow');
+			$("#img").hide('slow');
+		});
+
+		$("#btn2").click(function() {
+			$("#msg").show('slow');
+			$("#img").show('slow');
+		});
+
+		$("#btn3").click(function() {
+			$("#msg").toggle('slow');
+			$("#img").toggle('slow');
+		});
+
+		$("#btn4").click(function() {
+			$("#msg").slideUp('slow');
+			$("#img").slideUp('slow');
+		});
+
+		$("#btn5").click(function() {
+			$("#msg").slideDown('slow');
+			$("#img").slideDown('slow');
+		});
+
+		$("#btn6").click(function() {
+			$("#msg").slideToggle('slow');
+			$("#img").slideToggle('slow');
+		});
+
+		$("#btn7").click(function() {
+			$("#msg").fadeOut('slow');
+			$("#img").fadeOut('slow');
+		});
+
+		$("#btn8").click(function() {
+			$("#msg").fadeIn();
+			$("#img").fadeIn();
+		});
+
+		$("#btn9").click(function() {
+			$("#msg").fadeToggle();
+			$("#img").fadeToggle();
+		});
+
+		$("#btn0").click(function() {
+			// 3초 동안 투명도 50% 및 css속성 적용
+			$("#msg").fadeTo(3000, 0.5, function() {
+				$("#msg").css("border", "10px dotted orange");
+			});
+
+			$("#img").fadeTo(2000, 0.2, function() {
+				$(this).css("opacity", "1");
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+<style type="text/css">
+.red {color:red;}
+
+.green{color:green;}
+
+.blue{color:blue;}
+
+div.content>b{
+cursor: pointer;
+font-family: 'Noto Sans KR';
+font-size: 20pt;
+}
+
+div.answer>h5 {
+text-indent: 30px;
+font-family: 'Nanum Gothic';
+font-size: 15pt;
+}
+
+</style>
+<script type="text/javascript">
+// Q. 내용을 클릭 시 그 내용에 대한 댓글만 보이고 나머지 댓글 내용은 숨기기
+$(function name() {
+	// 댓글 숨기기
+	$("div.answer").hide('slow');
+	$("div.content>b").click(function() {
+		$(this).siblings().show('slow'); 
+		// 클릭한 곳의 부모(div.content red)의 형제(div.content green, blue)에서 div.answer 찾아 숨기기
+		$(this).parent().siblings().find("div.answer").hide('slow'); // find는 동일 Line상이 아닌 하위 태그에서만 찾아줌
+	})
+});
+
+</script>
+</head>
+<body>
+	<div class="content red">
+		<b>내용 1</b>
+		<div class="answer">
+			<h5>내용 1에 대한 댓글 1</h5>
+			<h5>내용 1에 대한 댓글 2</h5>
+			<h5>내용 1에 대한 댓글 3</h5>
+		</div>
+	</div>
+	<div class="content green">
+		<b>내용 2</b>
+		<div class="answer">
+			<h5>내용 2에 대한 댓글 1</h5>
+			<h5>내용 2에 대한 댓글 2</h5>
+			<h5>내용 2에 대한 댓글 3</h5>
+		</div>
+	</div>
+	<div class="content blue">
+		<b>내용 3</b>
+		<div class="answer">
+			<h5>내용 3에 대한 댓글 1</h5>
+			<h5>내용 3에 대한 댓글 2</h5>
+			<h5>내용 3에 대한 댓글 3</h5>
+		</div>
+	</div>
+</body>
+</html>
