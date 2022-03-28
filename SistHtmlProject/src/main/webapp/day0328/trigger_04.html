@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<h2 style="color: blue;">Start</h2>
+<h2 style="color: pink;">Start</h2>
+<h2 style="color: green;">Start</h2>
+
+<script type="text/javascript">
+
+$("h2").click(function() {
+	
+	// 별 추가1
+	$(this).append("☆");
+	
+	// 별 추가1
+	$(this).html(function(idx, html) {
+		return html+"★";
+	});
+});
+
+setInterval(function() {
+	$("h2:last").trigger("click");
+},1000);
+
+</script>
+
+<hr>
+<input type="file" id="file" style="visibility: hidden;"> <!-- 파일을 받는 input이지만 hidden 속성으로 보이지 않음 -->
+<img alt="" src="../image/camera2.png" width="70" id="camera">
+
+<script type="text/javascript">
+	/* img(#camera) 트리거를 통해 파일 첨부 팝업을 출력 */
+	$("#camera").click(function() {
+		$("#file").trigger("click");
+	});
+</script>
+
+</body>
+</html>

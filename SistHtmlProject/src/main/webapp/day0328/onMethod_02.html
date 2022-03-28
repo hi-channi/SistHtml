@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(function() {
+			// 정적 클릭 이벤트 
+			// 추가 될 것에는 이벤트를 부여할 수 없음
+			/* $("#mylang").children().click(function() {
+				$(this).remove();
+			});
+
+			$("#mylang").append("<li>Spring</li>"); */
+			
+			// 동적클릭 이벤트
+			$("#mylang").on("click","li",function() {
+				$(this).remove();
+			});
+			
+			// mylang 아래에 추가되는 카드는 모두 부모의 on("click")이벤트를 물려받음
+			$("#mylang").append("<li>Spring</li>");
+			
+			/* $("#mylang").on("click","li",function() {
+				$(event.target).remove();
+			}); */
+			
+		});
+	</script>
+	<ul id="mylang">
+		<li>Java</li>
+		<li>Oracle</li>
+		<li>Html</li>
+		<li>jQuery</li>
+	</ul>
+
+</body>
+</html>

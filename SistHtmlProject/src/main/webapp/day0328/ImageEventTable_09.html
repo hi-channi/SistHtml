@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+
+table{
+	border-collapse: collapse;
+}
+
+td {
+border: 1px solid gray;
+}
+
+.small img{
+	width: 80px;
+	height: 100px
+}
+
+.large {
+width: 300px;
+height: 350px;
+}
+
+.select {
+background-color: #e6e6fa;
+font-size: 1.3em;
+}
+</style>
+
+<script type="text/javascript">
+$(function () {
+	$("a.small").click(function (e) {
+		// 기본 이벤트 무효화
+		e.preventDefault();
+		
+		// td에 select 클래스 추가(추가 전 모든 클래스 적용 해제)
+		$("td").removeClass("select");
+		$(this).parent().addClass("select");
+		
+		// 다른 td에 추가된 select는 제거 (Line41 제거 후 사용)
+		//$(this).parent().parent().siblings().find("td").removeClass("select");
+		
+		// 작은 이미지 클릭 시 큰 이미지 나오게 하기
+		var thumbimg=$(this).attr("href");
+			
+		$(".large").fadeTo('fast', 0, function() {
+			$(this).attr("src",thumbimg);
+		}).fadeTo('fast',1);
+	});
+});
+</script>
+</head>
+<body>
+<table>
+<tr>
+<td width="150" align="center">
+	<a href="../image/person/sohee.jpg" class="small">
+	<img alt="" src="../image/person/sohee.jpg">
+	</a>
+	<p>한소희</p>
+</td>
+<td rowspan="4" width="350" align="left">
+	<img alt="" src="../image/person/sohee.jpg" class="large">
+</td>
+</tr>
+<tr>
+<td width="150" align="center">
+	<a href="../image/person/miyeon.jpg" class="small">
+	<img alt="" src="../image/person/miyeon.jpg">
+	</a>
+	<p>미연</p>
+</td>
+</tr>
+<tr>
+<td width="150" align="center">
+	<a href="../image/person/odung.jpg" class="small">
+	<img alt="" src="../image/person/odung.jpg">
+	</a>
+	<p>오둥이</p>
+</td>
+</tr>
+<tr>
+<td width="150" align="center">
+	<a href="../image/person/yura.jpg" class="small">
+	<img alt="" src="../image/person/yura.jpg">
+	</a>
+	<p>유라</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

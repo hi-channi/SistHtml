@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+div.carA {
+	cursor: pointer;
+}
+
+div.carB {
+	position: absolute;
+	left: 300px;
+	top: 100px;
+}
+</style>
+
+<script type="text/javascript">
+$(function () {
+	var s="";
+	for (var i = 1; i < 8; i++) {
+		var iname="../image/car/car_a_0"+i+".png";
+		s+="<img src='"+iname+"' class='a'><br>";
+	}
+	$("div.carA").html(s);
+	
+	// 큰 이미지 넣기
+	$("div.carB").html("<img src='../image/car/car_b_01.png' class='b'>");
+	
+	// 이벤트: 작은 이미지에 마우스를 올리면 해당 이미지를 큰 이미지로 변경
+	// 현재 큰 이미지 사진을 사라지게 하고 사진을 교체
+	
+	$("img.a").mouseover(function() {
+		// 현재사진
+		var smallimg=$(this).attr("src");
+		
+		// 큰 사진으로 변경
+		var largeimg=smallimg.replace('_a_','_b_');
+		
+		// 현재 자동차 사진 사라지게 하기
+		$("img.b").fadeOut('slow');
+		
+		// 사진 교체
+		$("img.b").attr("src",largeimg);
+		
+		// fade효과로 사진 나타내기
+		$("img.b").fadeIn('slow');
+	});
+});
+
+</script>
+</head>
+<body>
+	<div class="carA"></div>
+	<div class="carB"></div>
+</body>
+</html>

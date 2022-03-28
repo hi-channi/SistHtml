@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+div.wall {
+	position: absolute;
+	width: 200px;
+	height: 500px;
+	background-image: url("../image/bg2.png");
+	z-index: 2;
+}
+
+#img1 {
+	position: absolute;
+	left: 120px;
+	top: 100px;
+	width: 150px;
+	height: 200px;
+	z-index: 1px;
+}
+
+h2, #gun{
+position: absolute;
+top: 600px;
+left: 100px;
+}
+
+/* 이미지 원본 사이즈는 300*500 */
+#gun {
+	width: 300px;
+	height: 250px;
+	background-image: url("../image/gun.png");
+}
+
+/* 클릭 시 이미지 정렬(오른쪽 하단 보이기)을 변경해 active 효과 적용 */
+#gun:active {
+	background-position: right bottom;
+}	
+	
+</style>
+
+<script type="text/javascript">
+	$(function() {
+		$("#img1").click(function() {
+			$(this).animate({
+				width : '0px'
+			}, 'slow', function() {
+				$(this).animate({
+					width : '150px'
+				}, 'slow');
+			});
+		});
+		setInterval(function() {
+			$("#img1").trigger("click");
+		}, 3000);
+	});
+</script>
+</head>
+<body>
+<div class="wall"></div>
+<img alt="" src="../image/03.png" id="img1">
+
+<hr>
+
+<div id="gun"></div>
+</body>
+</html>

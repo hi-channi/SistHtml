@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<button type="button" id="add">+</button>
+
+	<script type="text/javascript">
+		// 기존의 클릭 방식
+		// append에 한번만 추가가 될 뿐 그 다음에 나타난 Button으로부터 추가가 되지는 않음
+		/* $("#add").click(function() {
+			$("body").append("<button id='add'>+</button>");
+		}); */
+
+		// element가 나중에(이후 이벤트에 의해) 동적으로 생성되더라도 이벤트가 유지되게 하려면?
+		//$(document).on('click', id(지정생성자), function)
+		$(document).on("click", "button[id='add']", function() {
+			$("body").append("<button id='add'>+</button>");
+		});
+	</script>
+</body>
+</html>
