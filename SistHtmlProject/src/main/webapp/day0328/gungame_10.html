@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style type="text/css">
+li {
+list-style: none;
+}
+
 body{
 background-image: url("../image/bg.png");
 background-size: cover;
@@ -62,26 +66,50 @@ border: 10px groove orange;
 text-align: center;
 line-height: 70px;
 width: 600px;
-height: 100px;
+height: 160px;
 }
 
 </style>
 <script type="text/javascript">
 $(function () {
 	var reload=new Audio("../media/reload.wav");
-	
+	var shotcnt=0;
 	$(".gun").click(function () {
 		reload.play();
-		
+		shotcnt++;
 		// 0~11 범위의 난수를 발생
+		var n=parseInt(Math.random()*12);
+		
 		// 해당 인덱스 인형이 이미 사라졌다면 "2번째 인형은 이미 쓰러졌습니다."
 		// 아닐경우 "2번째 인형을 맞췄습니다." >> 메시지 출력 후 hide
 		// Hint: $(".sunban img").eq(1).is(":hidden") ==> true/false
 		
+		if($(".sunban img").eq(n).is(":hidden")) {
+			$("#msg").html((n+1)+"번째 인형은 이미 쓰러졌습니다.<br>발사횟수: "+shotcnt);
+		} else {
+			$("#msg").html((n+1)+"번째 인형을 맞췄습니다!<br>발사횟수: "+shotcnt);
+			$(".sunban img").eq(n).hide();
+		}
+		
 		// 12개를 모두 맞추면 msg에 "YOU WIN!!" 출력하기
+		var cnt=0;
+		$(".sunban img").each(function (i, elt) {
+			if($(this).is(":hidden")) {
+				cnt++;			
+			}
+		});
+		if(cnt==12) {
+			$("#msg").html("<b>YOU WIN!!</b><br>총 발사 횟수: "+shotcnt);
+		}
 		
 		// 지폐를 클릭 시 해당 지폐 사라지고 새 게임 시작(인형 12개 모두 다시 세팅)
-		
+		$(".money img").click(function () {
+			$(this).hide();
+			$(".sunban img").show();
+			shotcnt=0; // 발사횟수 초기화
+			// # msg 비우기
+			$("#msg").empty();
+		});
 	});
 });
 </script>
